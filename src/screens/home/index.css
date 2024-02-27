@@ -1,0 +1,122 @@
+body {
+  overflow-x: hidden;
+  font-family: "Lora", serif;
+}
+:root {
+  --borderColor: #03a9f3;
+}
+.cardCompo {
+  /* border: 2px solid var(--borderColor); */
+}
+.cardCompo::before,
+.cardCompo::after {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  transition: 0.3s ease-in-out;
+}
+
+.cardCompo::before {
+  top: -3px;
+  left: -3px;
+  border-top: 2px solid var(--borderColor);
+  border-left: 2px solid var(--borderColor);
+}
+
+.cardCompo::after {
+  right: -3px;
+  bottom: -3px;
+  border-bottom: 2px solid var(--borderColor);
+  border-right: 2px solid var(--borderColor);
+}
+
+.cardCompo:hover::before{
+  left: -5px;
+  top: -5px;
+  transition: all 0.3s ease-in-out;
+}
+.cardCompo:hover::after {
+  right: -5px;
+  bottom: -5px;
+  transition: all 0.3s ease-in-out;
+}
+.cardCompo:hover::after,
+.cardCompo:hover::before {
+  width: 200px;
+  height: 200px;
+}
+
+.animate-this {
+  --color: hsla(273, 67%, 39%, 0.95);
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
+  border: 3px solid var(--color);
+  color: white;
+  padding: 0.5em 1em;
+  border-radius: 0.5em;
+  position: relative;
+  isolation: isolate;
+}
+.nothisall {
+  cursor: none;
+}
+#typing,
+.logoIMG {
+  user-select: none;
+}
+/* For Webkit browsers */
+#description-para::-webkit-scrollbar {
+  width: 5px; /* Width of the scrollbar */
+}
+
+#description-para::-webkit-scrollbar-thumb {
+  background-color: #1316b0; /* Color of the scrollbar thumb */
+  border-radius: 5px; /* Roundness of the thumb */
+}
+#typing {
+  font-family: "Lato", sans-serif;
+}
+#description-para::-webkit-scrollbar-track {
+  background-color: transparent; /* Color of the scrollbar track */
+}
+
+#typing {
+  font-family: "Lora", serif;
+}
+.animate-this::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  background-color: var(--color);
+  inset: 0;
+  scale: 0 1;
+  transform-origin: right;
+  transition: scale 450ms ease-in-out;
+}
+.animate-this:hover::after,
+.animate-this:focus-visible::after {
+  transform-origin: left;
+  scale: 1 1;
+}
+#mobileHome {
+  --s: 200px; /* control the size */
+  --c1: #1316b0;
+  --c2: #7395d8;
+  --c3: #2f0977;
+
+  background: repeating-conic-gradient(
+        from 30deg,
+        #0000 0 120deg,
+        var(--c3) 0 180deg
+      )
+      calc(0.5 * var(--s)) calc(0.5 * var(--s) * 0.577),
+    repeating-conic-gradient(
+      from 30deg,
+      var(--c1) 0 60deg,
+      var(--c2) 0 120deg,
+      var(--c3) 0 180deg
+    );
+  background-size: var(--s) calc(var(--s) * 0.577);
+}
